@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://ba72wvvl311m0"]
+
+[node name="Grid" type="Node2D"]
+
+[node name="yAxis" type="Node2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="y0" type="Line2D" parent="yAxis"]
+position = Vector2(0, 65)
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="y1" type="Line2D" parent="yAxis"]
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="y2" type="Line2D" parent="yAxis"]
+position = Vector2(0, 1)
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="y3" type="Line2D" parent="yAxis"]
+position = Vector2(0, 385)
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="y4" type="Line2D" parent="yAxis"]
+position = Vector2(0, 449)
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="y5" type="Line2D" parent="yAxis"]
+position = Vector2(0, 513)
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="y6" type="Line2D" parent="yAxis"]
+position = Vector2(0, 577)
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="y7" type="Line2D" parent="yAxis"]
+position = Vector2(0, 641)
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="y8" type="Line2D" parent="yAxis"]
+position = Vector2(0, 257)
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="y9" type="Line2D" parent="yAxis"]
+position = Vector2(0, 321)
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="y10" type="Line2D" parent="yAxis"]
+position = Vector2(0, 193)
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="y11" type="Line2D" parent="yAxis"]
+position = Vector2(0, 129)
+points = PackedVector2Array(0, 0, 1152, 0)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="xAxis" type="Node2D" parent="."]
+
+[node name="x0" type="Line2D" parent="xAxis"]
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x1" type="Line2D" parent="xAxis"]
+position = Vector2(64, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x2" type="Line2D" parent="xAxis"]
+position = Vector2(128, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x3" type="Line2D" parent="xAxis"]
+position = Vector2(192, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x4" type="Line2D" parent="xAxis"]
+position = Vector2(256, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x5" type="Line2D" parent="xAxis"]
+position = Vector2(320, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x6" type="Line2D" parent="xAxis"]
+position = Vector2(384, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x7" type="Line2D" parent="xAxis"]
+position = Vector2(448, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x8" type="Line2D" parent="xAxis"]
+position = Vector2(512, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x9" type="Line2D" parent="xAxis"]
+position = Vector2(576, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x10" type="Line2D" parent="xAxis"]
+position = Vector2(640, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x11" type="Line2D" parent="xAxis"]
+position = Vector2(704, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x12" type="Line2D" parent="xAxis"]
+position = Vector2(768, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x13" type="Line2D" parent="xAxis"]
+position = Vector2(832, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x14" type="Line2D" parent="xAxis"]
+position = Vector2(896, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x15" type="Line2D" parent="xAxis"]
+position = Vector2(960, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x16" type="Line2D" parent="xAxis"]
+position = Vector2(1024, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x17" type="Line2D" parent="xAxis"]
+position = Vector2(1088, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)
+
+[node name="x18" type="Line2D" parent="xAxis"]
+position = Vector2(1152, 0)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 640, -2.79753e-05)
+width = 3.0
+default_color = Color(0, 0.427451, 0.427451, 0.811765)

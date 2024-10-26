@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://bb7u72yjtjhqq"]
+[gd_scene load_steps=3 format=3 uid="uid://bb7u72yjtjhqq"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://dbo1t2mb27qn2" path="res://scenes/player.tscn" id="1_iqnn6"]
+[ext_resource type="PackedScene" uid="uid://ba72wvvl311m0" path="res://scenes/debugGrid.tscn" id="2_hmida"]
+
+[node name="testScene" type="Node2D"]
+
+[node name="Debug" type="Node2D" parent="."]
+
+[node name="Grid" parent="Debug" instance=ExtResource("2_hmida")]
+
+[node name="Player" parent="." instance=ExtResource("1_iqnn6")]
+position = Vector2(512, 256)
