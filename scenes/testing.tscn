@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb7u72yjtjhqq"]
+[gd_scene load_steps=5 format=3 uid="uid://bb7u72yjtjhqq"]
 
 [ext_resource type="PackedScene" uid="uid://dbo1t2mb27qn2" path="res://scenes/player.tscn" id="1_iqnn6"]
 [ext_resource type="PackedScene" uid="uid://ba72wvvl311m0" path="res://scenes/debugGrid.tscn" id="2_hmida"]
+[ext_resource type="PackedScene" uid="uid://bqau6osaho2pp" path="res://scenes/obstacle.tscn" id="3_gqudu"]
+[ext_resource type="PackedScene" uid="uid://g3cd42nl1w1m" path="res://scenes/box.tscn" id="4_ld1k5"]
 
 [node name="testScene" type="Node2D"]
 
@@ -11,3 +13,46 @@
 
 [node name="Player" parent="." instance=ExtResource("1_iqnn6")]
 position = Vector2(512, 256)
+
+[node name="Murs" type="Node2D" parent="."]
+
+[node name="mur0" parent="Murs" instance=ExtResource("3_gqudu")]
+position = Vector2(384, 256)
+
+[node name="mur1" parent="Murs" instance=ExtResource("3_gqudu")]
+position = Vector2(640, 320)
+
+[node name="mur2" parent="Murs" instance=ExtResource("3_gqudu")]
+position = Vector2(384, 320)
+
+[node name="mur3" parent="Murs" instance=ExtResource("3_gqudu")]
+position = Vector2(640, 256)
+
+[node name="mur4" parent="Murs" instance=ExtResource("3_gqudu")]
+position = Vector2(640, 192)
+
+[node name="mur5" parent="Murs" instance=ExtResource("3_gqudu")]
+position = Vector2(512, 128)
+
+[node name="mur6" parent="Murs" instance=ExtResource("3_gqudu")]
+position = Vector2(448, 128)
+
+[node name="mur7" parent="Murs" instance=ExtResource("3_gqudu")]
+position = Vector2(384, 192)
+
+[node name="Box" type="Node2D" parent="."]
+
+[node name="box0" parent="Box" instance=ExtResource("4_ld1k5")]
+position = Vector2(512, 384)
+
+[node name="box1" parent="Box" instance=ExtResource("4_ld1k5")]
+position = Vector2(768, 320)
+
+[node name="box2" parent="Box" instance=ExtResource("4_ld1k5")]
+position = Vector2(640, 448)
+
+[node name="box3" parent="Box" instance=ExtResource("4_ld1k5")]
+position = Vector2(192, 320)
+
+[node name="box4" parent="Box" instance=ExtResource("4_ld1k5")]
+position = Vector2(320, 448)

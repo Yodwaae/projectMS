@@ -10,3 +10,37 @@ script = ExtResource("1_10ria")
 position = Vector2(32, 32)
 scale = Vector2(0.507813, 0.507813)
 texture = ExtResource("2_el6nl")
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="raycastLeft" type="RayCast2D" parent="Raycasts"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(-64, 0)
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="raycastRight" type="RayCast2D" parent="Raycasts"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(64, 0)
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="raycastDown" type="RayCast2D" parent="Raycasts"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(0, 64)
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="raycastUp" type="RayCast2D" parent="Raycasts"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(0, -64)
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = false
