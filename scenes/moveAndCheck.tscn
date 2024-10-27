@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://ky4ola23jbcm"]
+
+[ext_resource type="Script" path="res://Scripts/move_and_check_component.gd" id="1_5erg6"]
+
+[node name="moveAndCheck" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="moveAndCheckComponent" type="Node2D" parent="."]
+script = ExtResource("1_5erg6")
+
+[node name="Raycasts" type="Node2D" parent="moveAndCheckComponent"]
+
+[node name="raycastLeft" type="RayCast2D" parent="moveAndCheckComponent/Raycasts"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(-64, 0)
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="raycastRight" type="RayCast2D" parent="moveAndCheckComponent/Raycasts"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(64, 0)
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="raycastDown" type="RayCast2D" parent="moveAndCheckComponent/Raycasts"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(0, 64)
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="raycastUp" type="RayCast2D" parent="moveAndCheckComponent/Raycasts"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(0, -64)
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = false

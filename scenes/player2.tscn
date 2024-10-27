@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c37wjbsn174vu"]
+
+[ext_resource type="PackedScene" uid="uid://ky4ola23jbcm" path="res://scenes/moveAndCheck.tscn" id="1_gbysc"]
+[ext_resource type="Texture2D" uid="uid://dbywly48m8p04" path="res://Assets/tiles/solid_logo.png" id="2_4du1a"]
+[ext_resource type="Script" path="res://Scripts/player_movement.gd" id="2_c0gvk"]
+
+[node name="player" instance=ExtResource("1_gbysc")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(32, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4du1a")
+
+[node name="moveAndCheckComponent" parent="." index="1"]
+unique_name_in_owner = true
+
+[node name="playerMovementComponent" type="Node2D" parent="." index="2"]
+script = ExtResource("2_c0gvk")
