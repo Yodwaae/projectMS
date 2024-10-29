@@ -41,5 +41,4 @@ moveRight={
 [layer_names]
 
 2d_physics/layer_1="Obstacles"
-2d_physics/layer_2="Murs"
-2d_physics/layer_3="Trous"
+2d_physics/layer_2="Boxes"

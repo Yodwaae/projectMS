@@ -13,34 +13,100 @@ texture = ExtResource("2_el6nl")
 
 [node name="Raycasts" type="Node2D" parent="."]
 
-[node name="raycastLeft" type="RayCast2D" parent="Raycasts"]
-unique_name_in_owner = true
-position = Vector2(32, 32)
-target_position = Vector2(-64, 0)
-collision_mask = 3
-collide_with_areas = true
-collide_with_bodies = false
+[node name="Obstacles Raycats" type="Node2D" parent="Raycasts"]
 
-[node name="raycastRight" type="RayCast2D" parent="Raycasts"]
-unique_name_in_owner = true
-position = Vector2(32, 32)
-target_position = Vector2(64, 0)
-collision_mask = 3
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="raycastDown" type="RayCast2D" parent="Raycasts"]
+[node name="obsRaycastDown" type="RayCast2D" parent="Raycasts/Obstacles Raycats"]
 unique_name_in_owner = true
 position = Vector2(32, 32)
 target_position = Vector2(0, 64)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="osbRaycastUp" type="RayCast2D" parent="Raycasts/Obstacles Raycats"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(0, -64)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="obsRaycastRight" type="RayCast2D" parent="Raycasts/Obstacles Raycats"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(64, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="obsRaycastLeft" type="RayCast2D" parent="Raycasts/Obstacles Raycats"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(-64, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Boxes Raycats" type="Node2D" parent="Raycasts"]
+
+[node name="boxRaycastDown" type="RayCast2D" parent="Raycasts/Boxes Raycats"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(0, 64)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="boxRaycastUp" type="RayCast2D" parent="Raycasts/Boxes Raycats"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(0, -64)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="boxRaycastRight" type="RayCast2D" parent="Raycasts/Boxes Raycats"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(64, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="boxRaycastLeft" type="RayCast2D" parent="Raycasts/Boxes Raycats"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(-64, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Obstacles Raycast after Boxes" type="Node2D" parent="Raycasts"]
+
+[node name="afterBoxRaycastDown" type="RayCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(0, 128)
 collision_mask = 3
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="raycastUp" type="RayCast2D" parent="Raycasts"]
+[node name="afterBoxRaycastUp" type="RayCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
 unique_name_in_owner = true
 position = Vector2(32, 32)
-target_position = Vector2(0, -64)
+target_position = Vector2(0, -128)
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="afterBoxRaycastRight" type="RayCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(128, 0)
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="afterBoxRaycastLeft" type="RayCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+target_position = Vector2(-128, 0)
 collision_mask = 3
 collide_with_areas = true
 collide_with_bodies = false

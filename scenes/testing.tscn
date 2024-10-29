@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ba72wvvl311m0" path="res://scenes/debugGrid.tscn" id="2_hmida"]
 [ext_resource type="PackedScene" uid="uid://bqau6osaho2pp" path="res://scenes/obstacle.tscn" id="3_gqudu"]
-[ext_resource type="PackedScene" uid="uid://c37wjbsn174vu" path="res://scenes/player2.tscn" id="4_8ic37"]
+[ext_resource type="PackedScene" uid="uid://dbo1t2mb27qn2" path="res://scenes/player.tscn" id="4_4sop5"]
 [ext_resource type="PackedScene" uid="uid://cj8btawv0hqqo" path="res://scenes/box.tscn" id="4_ld1k5"]
 
 [node name="testScene" type="Node2D"]
@@ -46,13 +46,13 @@ position = Vector2(512, 384)
 position = Vector2(768, 320)
 
 [node name="box2" parent="Box" instance=ExtResource("4_ld1k5")]
-position = Vector2(640, 448)
+position = Vector2(640, 384)
 
 [node name="box3" parent="Box" instance=ExtResource("4_ld1k5")]
-position = Vector2(192, 320)
+position = Vector2(256, 448)
 
 [node name="box4" parent="Box" instance=ExtResource("4_ld1k5")]
 position = Vector2(320, 448)
 
-[node name="player" parent="." instance=ExtResource("4_8ic37")]
+[node name="Player" parent="." instance=ExtResource("4_4sop5")]
 position = Vector2(512, 256)
