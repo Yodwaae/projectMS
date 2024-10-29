@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbo1t2mb27qn2"]
+[gd_scene load_steps=7 format=3 uid="uid://dbo1t2mb27qn2"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_10ria"]
 [ext_resource type="Texture2D" uid="uid://dbywly48m8p04" path="res://Assets/tiles/solid_logo.png" id="2_el6nl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brpph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdc4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48h0v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evbfh"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_10ria")
@@ -79,34 +87,38 @@ collide_with_bodies = false
 
 [node name="Obstacles Raycast after Boxes" type="Node2D" parent="Raycasts"]
 
-[node name="afterBoxRaycastDown" type="RayCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
+[node name="afterBoxRaycastDown" type="ShapeCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
 unique_name_in_owner = true
-position = Vector2(32, 32)
-target_position = Vector2(0, 128)
+position = Vector2(32, 160)
+shape = SubResource("RectangleShape2D_brpph")
+target_position = Vector2(0, 0)
 collision_mask = 3
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="afterBoxRaycastUp" type="RayCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
+[node name="afterBoxRaycastUp" type="ShapeCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
 unique_name_in_owner = true
-position = Vector2(32, 32)
-target_position = Vector2(0, -128)
+position = Vector2(32, -96)
+shape = SubResource("RectangleShape2D_jdc4x")
+target_position = Vector2(0, 0)
 collision_mask = 3
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="afterBoxRaycastRight" type="RayCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
+[node name="afterBoxRaycastRight" type="ShapeCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
 unique_name_in_owner = true
-position = Vector2(32, 32)
-target_position = Vector2(128, 0)
+position = Vector2(160, 32)
+shape = SubResource("RectangleShape2D_48h0v")
+target_position = Vector2(0, 0)
 collision_mask = 3
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="afterBoxRaycastLeft" type="RayCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
+[node name="afterBoxRaycastLeft" type="ShapeCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
 unique_name_in_owner = true
-position = Vector2(32, 32)
-target_position = Vector2(-128, 0)
+position = Vector2(-96, 32)
+shape = SubResource("RectangleShape2D_evbfh")
+target_position = Vector2(0, 0)
 collision_mask = 3
 collide_with_areas = true
 collide_with_bodies = false

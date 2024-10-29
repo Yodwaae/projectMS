@@ -17,14 +17,15 @@ extends Node2D
 @onready var boxRaycastLeft: RayCast2D = %boxRaycastLeft
 
 # After Boxes Raycasts
-@onready var afterBoxRaycastDown: RayCast2D = %afterBoxRaycastDown
-@onready var afterBoxRaycastUp: RayCast2D = %afterBoxRaycastUp
-@onready var afterBoxRaycastRight: RayCast2D = %afterBoxRaycastRight
-@onready var afterBoxRaycastLeft: RayCast2D = %afterBoxRaycastLeft
+@onready var afterBoxRaycastDown: ShapeCast2D = %afterBoxRaycastDown
+@onready var afterBoxRaycastUp: ShapeCast2D = %afterBoxRaycastUp
+@onready var afterBoxRaycastRight: ShapeCast2D = %afterBoxRaycastRight
+@onready var afterBoxRaycastLeft: ShapeCast2D = %afterBoxRaycastLeft
+
 
 # === MOVEMENTS ===
 # No need to export, will be modified depending on tile size
-var distance : int = 64
+var moveLength : int = 64
 var canMoveDown : bool = false
 var canMoveUp : bool = false
 var canMoveLeft : bool = false
@@ -35,25 +36,38 @@ var canMoveRight : bool = false
 
 #region ===== FONCTIONS =====
 
+func moveDown(distance):
+	move_local_y(distance)
+	
+func moveUp(distance):
+	move_local_y(-distance)
+	
+func moveRight(distance):
+	move_local_x(distance)
+	
+func moveLeft(distance):
+	move_local_x(-distance)
 
 func _physics_process(delta: float) -> void:
 	
-	canMoveDown = not obsRaycastDown.is_colliding() and (not boxRaycastDown.is_colliding()) or (boxRaycastDown.is_colliding() and not afterBoxRaycastDown.is_colliding())
-	canMoveUp = not obsRaycastUp.is_colliding() and (not boxRaycastUp.is_colliding()) or (boxRaycastUp.is_colliding() and not afterBoxRaycastUp.is_colliding())
-	canMoveRight = not obsRaycastRight.is_colliding() and (not boxRaycastRight.is_colliding()) or (boxRaycastRight.is_colliding() and not afterBoxRaycastRight.is_colliding())
-	canMoveLeft = not obsRaycastLeft.is_colliding() and (not boxRaycastLeft.is_colliding()) or (boxRaycastLeft.is_colliding() and not afterBoxRaycastLeft.is_colliding())
+	canMoveDown = not obsRaycastDown.is_colliding() and (not boxRaycastDown.is_colliding() or (boxRaycastDown.is_colliding() and not afterBoxRaycastDown.is_colliding()))
+	canMoveUp = not obsRaycastUp.is_colliding() and (not boxRaycastUp.is_colliding() or (boxRaycastUp.is_colliding() and not afterBoxRaycastUp.is_colliding()))
+	canMoveRight = not obsRaycastRight.is_colliding() and (not boxRaycastRight.is_colliding() or (boxRaycastRight.is_colliding() and not afterBoxRaycastRight.is_colliding()))
+	canMoveLeft = not obsRaycastLeft.is_colliding() and (not boxRaycastLeft.is_colliding() or (boxRaycastLeft.is_colliding() and not afterBoxRaycastLeft.is_colliding()))
 	
 	# ===== MOVEMENTS ======
 	# NOTE Using elif to avoid moving diagonaly almost instantly when two inputs are pressed simultaneously, 
 	# which can cause problems with the collision detection
 	if Input.is_action_just_pressed("moveDown") and canMoveDown:
-		move_local_y(distance)
+		moveDown(moveLength)
 	elif Input.is_action_just_pressed("moveUp") and canMoveUp:
-		move_local_y(-distance)
+		moveUp(moveLength)
 	elif Input.is_action_just_pressed("moveRight") and canMoveRight:
-		move_local_x(distance)
+		moveRight(moveLength)
 	elif Input.is_action_just_pressed("moveLeft") and canMoveLeft:
-		move_local_x(-distance)
-
+		moveLeft(moveLength)
+		
+	if Input.is_action_just_pressed("debug"):
+		print(canMoveLeft)
 
 #endregion
