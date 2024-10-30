@@ -2,7 +2,7 @@ extends Node2D
 
 #region ===== VARIABLES INITIALISATION =======
 
-# === RAYCAST ===
+#region === RAYCAST ===
 # Obstacles Raycasts
 @onready var obsRaycastDown: ShapeCast2D = %obsRaycastDown
 @onready var obsRaycastUp: ShapeCast2D = %obsRaycastUp
@@ -21,16 +21,41 @@ extends Node2D
 @onready var afterBoxRaycastRight: ShapeCast2D = %afterBoxRaycastRight
 @onready var afterBoxRaycastLeft: ShapeCast2D = %afterBoxRaycastLeft
 
-# Raycasts group by direction TODO
+# Raycasts group by direction
+@onready var downRaycasts : Array[ShapeCast2D] = [obsRaycastDown, boxRaycastDown, afterBoxRaycastDown]
+@onready var upRaycasts : Array[ShapeCast2D] = [obsRaycastUp, boxRaycastUp, afterBoxRaycastUp]
+@onready var rightRaycasts : Array[ShapeCast2D] = [obsRaycastRight, boxRaycastRight, afterBoxRaycastRight]
+@onready var leftRaycasts : Array[ShapeCast2D] = [obsRaycastLeft, boxRaycastLeft, afterBoxRaycastLeft]
 
-# === MOVEMENTS ===
+#endregion
+
+#region === MOVEMENTS ===
+
 # No need to export, will be modified depending on tile size
 var moveLength : int = 64
 
 #endregion
+#endregion
 
 
 #region ===== FONCTIONS =====
+
+func canMove(raycasts : Array[ShapeCast2D]) -> bool:
+	
+	# Check the raycast collisions
+	var isThereObstacle = raycasts[0].is_colliding()
+	var isThereBox = raycasts[1].is_colliding()
+	var isThereSomethingAfterBox = raycasts[2].is_colliding()
+	
+	# Get the reference to the box
+	if isThereBox:
+		var box = raycasts[1].get_collider(0)
+		# DEBUG PRINT
+		print(box.get_parent())
+	
+	# Player can move if there is no obstacle, no box or a box and nothing in the cell after the box
+	var canMove = not isThereObstacle and (not isThereBox or (isThereBox and not isThereSomethingAfterBox))
+	return canMove
 
 func canMoveDown() -> bool:
 	
@@ -101,13 +126,13 @@ func _physics_process(delta: float) -> void:
 	# ===== MOVEMENTS ======
 	# NOTE Using elif to avoid moving diagonaly almost instantly when two inputs are pressed simultaneously, 
 	# which can cause problems with the collision detection
-	if Input.is_action_just_pressed("moveDown") and canMoveDown():
+	if Input.is_action_just_pressed("moveDown") and canMove(downRaycasts):
 		move_local_y(moveLength)
-	elif Input.is_action_just_pressed("moveUp") and canMoveUp():
+	elif Input.is_action_just_pressed("moveUp") and canMove(upRaycasts):
 		move_local_y(-moveLength)
-	elif Input.is_action_just_pressed("moveRight") and canMoveRight():
+	elif Input.is_action_just_pressed("moveRight") and canMove(rightRaycasts):
 		move_local_x(moveLength)
-	elif Input.is_action_just_pressed("moveLeft") and canMoveLeft():
+	elif Input.is_action_just_pressed("moveLeft") and canMove(leftRaycasts):
 		move_local_x(-moveLength)
 
 #endregion
