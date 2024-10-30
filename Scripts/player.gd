@@ -37,6 +37,7 @@ var moveLength : int = 64
 #endregion
 #endregion
 
+var boxToPush = null
 
 #region ===== FONCTIONS =====
 
@@ -48,91 +49,35 @@ func canMove(raycasts : Array[ShapeCast2D]) -> bool:
 	var isThereSomethingAfterBox = raycasts[2].is_colliding()
 	
 	# Get the reference to the box
-	if isThereBox:
-		var box = raycasts[1].get_collider(0)
-		# DEBUG PRINT
-		print(box.get_parent())
-	
-	# Player can move if there is no obstacle, no box or a box and nothing in the cell after the box
-	var canMove = not isThereObstacle and (not isThereBox or (isThereBox and not isThereSomethingAfterBox))
-	return canMove
-
-func canMoveDown() -> bool:
-	
-	# Check the raycast collisions
-	var isThereObstacle = obsRaycastDown.is_colliding()
-	var isThereBox = boxRaycastDown.is_colliding()
-	var isThereSomethingAfterBox = afterBoxRaycastDown.is_colliding()
-	
-	# Get the reference to the box
-	if isThereBox:
-		var box = boxRaycastDown.get_collider(0)
-		print(box.get_parent())
-	
-	# Player can move if there is no obstacle, no box or a box and nothing in the cell after the box
-	var canMove = not isThereObstacle and (not isThereBox or (isThereBox and not isThereSomethingAfterBox))
-	return canMove
-
-func canMoveUp() -> bool:
-	
-	# Check the raycast collisions
-	var isThereObstacle = obsRaycastUp.is_colliding()
-	var isThereBox = boxRaycastUp.is_colliding()
-	var isThereSomethingAfterBox = afterBoxRaycastUp.is_colliding()
-	
-	# Get the reference to the box
-	if isThereBox:
-		var box = boxRaycastUp.get_collider(0)
-		print(box.get_parent())
-	
-	# Player can move if there is no obstacle, no box or a box and nothing in the cell after the box
-	var canMove = not isThereObstacle and (not isThereBox or (isThereBox and not isThereSomethingAfterBox))
-	return canMove
-
-func canMoveRight() -> bool:
-	
-	# Check the raycast collisions
-	var isThereObstacle = obsRaycastRight.is_colliding()
-	var isThereBox = boxRaycastRight.is_colliding()
-	var isThereSomethingAfterBox = afterBoxRaycastRight.is_colliding()
-	
-	# Get the reference to the box
-	if isThereBox:
-		var box = boxRaycastRight.get_collider(0)
-		print(box.get_parent())
+	if isThereBox and not isThereSomethingAfterBox:
+		boxToPush = raycasts[1].get_collider(0).get_parent()
 	
 	# Player can move if there is no obstacle, no box or a box and nothing in the cell after the box
 	var canMove = not isThereObstacle and (not isThereBox or (isThereBox and not isThereSomethingAfterBox))
 	return canMove
 	
-func canMoveLeft() -> bool:
-	
-	# Check the raycast collisions
-	var isThereObstacle = obsRaycastLeft.is_colliding()
-	var isThereBox = boxRaycastLeft.is_colliding()
-	var isThereSomethingAfterBox = afterBoxRaycastLeft.is_colliding()
-	
-	# Get the reference to the box
-	if isThereBox:
-		var box = boxRaycastLeft.get_collider(0)
-		print(box.get_parent())
-	
-	# Player can move if there is no obstacle, no box or a box and nothing in the cell after the box
-	var canMove = not isThereObstacle and (not isThereBox or (isThereBox and not isThereSomethingAfterBox))
-	return canMove
-
 func _physics_process(delta: float) -> void:
+	
+	boxToPush = null
 	
 	# ===== MOVEMENTS ======
 	# NOTE Using elif to avoid moving diagonaly almost instantly when two inputs are pressed simultaneously, 
 	# which can cause problems with the collision detection
 	if Input.is_action_just_pressed("moveDown") and canMove(downRaycasts):
+		if boxToPush:
+			boxToPush.moveDown(moveLength)
 		move_local_y(moveLength)
 	elif Input.is_action_just_pressed("moveUp") and canMove(upRaycasts):
+		if boxToPush:
+			boxToPush.moveUp(moveLength)
 		move_local_y(-moveLength)
 	elif Input.is_action_just_pressed("moveRight") and canMove(rightRaycasts):
+		if boxToPush:
+			boxToPush.moveRight(moveLength)
 		move_local_x(moveLength)
 	elif Input.is_action_just_pressed("moveLeft") and canMove(leftRaycasts):
+		if boxToPush:
+			boxToPush.moveLeft(moveLength)
 		move_local_x(-moveLength)
 
 #endregion
