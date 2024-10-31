@@ -1,13 +1,8 @@
 extends Node2D
 
-func moveDown(distance):
-	move_local_y(distance)
-
-func moveUp(distance):
-	move_local_y(-distance)
-
-func moveRight(distance):
-	move_local_x(distance)
-
-func moveLeft(distance):
-	move_local_x(-distance)
+func move(direction, length):
+	## Public function allowing the player script to move a box
+	## direction : Vector2, direction in wich to move the box
+	## length : int, length of the move in pixel
+	
+	position += direction * length
