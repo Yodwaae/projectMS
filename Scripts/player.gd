@@ -31,13 +31,13 @@ extends Node2D
 
 #region === MOVEMENTS ===
 
-# No need to export, will be modified depending on tile size
+# NOTE No need to export, will be modified directly in the code depending on tile size
 var moveLength : int = 64
+var boxToPush : Node2D = null
+var direction : Vector2 = Vector2.ZERO
 
 #endregion
 #endregion
-
-var boxToPush = null
 
 #region ===== FONCTIONS =====
 
@@ -48,7 +48,7 @@ func canMove(raycasts : Array[ShapeCast2D]) -> bool:
 	var isThereBox = raycasts[1].is_colliding()
 	var isThereSomethingAfterBox = raycasts[2].is_colliding()
 	
-	# Get the reference to the box
+	# If there is a pushable box, get a reference to it
 	if isThereBox and not isThereSomethingAfterBox:
 		boxToPush = raycasts[1].get_collider(0).get_parent()
 	
@@ -58,6 +58,7 @@ func canMove(raycasts : Array[ShapeCast2D]) -> bool:
 	
 func _physics_process(delta: float) -> void:
 	
+	# Reset
 	boxToPush = null
 	
 	# ===== MOVEMENTS ======
@@ -66,18 +67,35 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("moveDown") and canMove(downRaycasts):
 		if boxToPush:
 			boxToPush.moveDown(moveLength)
-		move_local_y(moveLength)
+			
+		direction = Vector2.DOWN
+		
 	elif Input.is_action_just_pressed("moveUp") and canMove(upRaycasts):
 		if boxToPush:
 			boxToPush.moveUp(moveLength)
-		move_local_y(-moveLength)
+			
+		direction = Vector2.UP
+		
 	elif Input.is_action_just_pressed("moveRight") and canMove(rightRaycasts):
 		if boxToPush:
 			boxToPush.moveRight(moveLength)
-		move_local_x(moveLength)
+			
+		direction = Vector2.RIGHT
+		
 	elif Input.is_action_just_pressed("moveLeft") and canMove(leftRaycasts):
 		if boxToPush:
 			boxToPush.moveLeft(moveLength)
-		move_local_x(-moveLength)
+			
+		direction = Vector2.LEFT
+	
+	# If a direction is inputed, do the movement logic
+	if direction != Vector2.ZERO:
+		
+		# Move
+		position += direction * moveLength
+		
+		# Consume the direction input
+		direction = Vector2.ZERO
+		
 
 #endregion
