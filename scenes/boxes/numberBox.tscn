@@ -7,4 +7,6 @@
 script = ExtResource("2_p071x")
 
 [node name="valueDisplay" parent="." index="3"]
-text = "0"
+theme_override_font_sizes/font_size = 20
+text = "
+"

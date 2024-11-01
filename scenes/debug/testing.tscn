@@ -41,23 +41,21 @@ position = Vector2(384, 192)
 
 [node name="box0" parent="Box" instance=ExtResource("3_iw5sc")]
 position = Vector2(512, 448)
-value = 82
+value = 88
 
 [node name="box1" parent="Box" instance=ExtResource("3_iw5sc")]
 position = Vector2(640, 384)
-value = 67
 
 [node name="box2" parent="Box" instance=ExtResource("3_iw5sc")]
 position = Vector2(768, 320)
-value = 28
+value = 155
 
 [node name="box3" parent="Box" instance=ExtResource("3_iw5sc")]
 position = Vector2(256, 448)
-value = 56
+value = 25
 
 [node name="box4" parent="Box" instance=ExtResource("3_iw5sc")]
 position = Vector2(192, 448)
-value = 2
 
 [node name="Player" parent="." instance=ExtResource("4_4sop5")]
 position = Vector2(512, 256)
