@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://7q7q5rmogpyh"]
+
+[ext_resource type="PackedScene" uid="uid://cj8btawv0hqqo" path="res://scenes/boxes/box.tscn" id="1_c2tur"]
+[ext_resource type="Script" path="res://Scripts/numberLogic.gd" id="2_p071x"]
+
+[node name="Box" instance=ExtResource("1_c2tur")]
+script = ExtResource("2_p071x")
+
+[node name="valueDisplay" parent="." index="3"]
+text = "0"

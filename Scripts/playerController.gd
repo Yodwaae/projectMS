@@ -83,13 +83,14 @@ func _physics_process(delta: float) -> void:
 	
 	# If a direction is inputed, do the movement logic
 	if direction != Vector2.ZERO and checkBoxesAndObstacles(checkDirection):
-		
+
 		# Move player
 		position += direction * moveLength
 		
 		# Move box
 		if boxToPush:
-			boxToPush.move(direction, moveLength)
+			var moveScript = boxToPush.get_node("%moveScript")
+			moveScript.move(direction, moveLength)
 			boxToPush = null
 		
 		# Consume the direction input

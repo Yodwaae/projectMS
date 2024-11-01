@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bb7u72yjtjhqq"]
 
-[ext_resource type="PackedScene" uid="uid://ba72wvvl311m0" path="res://scenes/debugGrid.tscn" id="2_hmida"]
+[ext_resource type="PackedScene" uid="uid://ba72wvvl311m0" path="res://scenes/debug/debugGrid.tscn" id="2_hmida"]
 [ext_resource type="PackedScene" uid="uid://bqau6osaho2pp" path="res://scenes/obstacle.tscn" id="3_gqudu"]
+[ext_resource type="PackedScene" uid="uid://7q7q5rmogpyh" path="res://scenes/boxes/numberBox.tscn" id="3_iw5sc"]
 [ext_resource type="PackedScene" uid="uid://dbo1t2mb27qn2" path="res://scenes/player.tscn" id="4_4sop5"]
-[ext_resource type="PackedScene" uid="uid://cj8btawv0hqqo" path="res://scenes/box.tscn" id="4_ld1k5"]
 
 [node name="testScene" type="Node2D"]
 
@@ -39,20 +39,25 @@ position = Vector2(384, 192)
 
 [node name="Box" type="Node2D" parent="."]
 
-[node name="box0" parent="Box" instance=ExtResource("4_ld1k5")]
-position = Vector2(512, 384)
+[node name="box0" parent="Box" instance=ExtResource("3_iw5sc")]
+position = Vector2(512, 448)
+value = 82
 
-[node name="box1" parent="Box" instance=ExtResource("4_ld1k5")]
-position = Vector2(768, 320)
-
-[node name="box2" parent="Box" instance=ExtResource("4_ld1k5")]
+[node name="box1" parent="Box" instance=ExtResource("3_iw5sc")]
 position = Vector2(640, 384)
+value = 67
 
-[node name="box3" parent="Box" instance=ExtResource("4_ld1k5")]
+[node name="box2" parent="Box" instance=ExtResource("3_iw5sc")]
+position = Vector2(768, 320)
+value = 28
+
+[node name="box3" parent="Box" instance=ExtResource("3_iw5sc")]
 position = Vector2(256, 448)
+value = 56
 
-[node name="box4" parent="Box" instance=ExtResource("4_ld1k5")]
-position = Vector2(320, 448)
+[node name="box4" parent="Box" instance=ExtResource("3_iw5sc")]
+position = Vector2(192, 448)
+value = 2
 
 [node name="Player" parent="." instance=ExtResource("4_4sop5")]
-position = Vector2(383, 448)
+position = Vector2(512, 256)

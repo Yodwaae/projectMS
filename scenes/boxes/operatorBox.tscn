@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxm1eatsoxwy6"]
+
+[ext_resource type="PackedScene" uid="uid://cj8btawv0hqqo" path="res://scenes/boxes/box.tscn" id="1_djg71"]
+[ext_resource type="Script" path="res://Scripts/operatorLogic.gd" id="2_25cin"]
+
+[node name="Box" instance=ExtResource("1_djg71")]
+script = ExtResource("2_25cin")
