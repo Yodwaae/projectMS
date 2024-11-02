@@ -89,8 +89,7 @@ func _physics_process(delta: float) -> void:
 		
 		# Move box
 		if boxToPush:
-			var moveScript = boxToPush.get_node("%moveScript")
-			moveScript.move(direction, moveLength)
+			boxToPush.move(direction, moveLength)
 			boxToPush = null
 		
 		# Consume the direction input

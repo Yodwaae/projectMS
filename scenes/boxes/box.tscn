@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj8btawv0hqqo"]
 
-[ext_resource type="Script" path="res://Scripts/boxMove.gd" id="1_ngsio"]
+[ext_resource type="Script" path="res://scripts/box.gd" id="1_ngsio"]
 [ext_resource type="Texture2D" uid="uid://1dvn7uua3aov" path="res://Assets/tiles/crate.png" id="1_o6ly8"]
 [ext_resource type="FontFile" uid="uid://c5hngck2kyaya" path="res://Assets/font/Roboto/Roboto-Black.ttf" id="3_g4tjf"]
 
@@ -8,10 +8,9 @@
 size = Vector2(128, 128)
 
 [node name="Box" type="Node2D"]
+script = ExtResource("1_ngsio")
 
 [node name="moveScript" type="Node2D" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_ngsio")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(32, 32)
