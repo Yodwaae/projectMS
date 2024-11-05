@@ -44,40 +44,28 @@ position = Vector2(384, 192)
 
 [node name="nbBox0" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(512, 448)
-value = 28
+value = 150
 
 [node name="nbBox1" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(256, 448)
-value = 57
+value = 27
 
 [node name="nbBox2" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(320, 448)
-value = 72
+value = 5
 
 [node name="nbBox3" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(768, 320)
-value = 99
+value = 28
 
 [node name="nbBox4" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(640, 384)
-value = 1
+value = 99
 
 [node name="opBoxes" type="Node2D" parent="Box"]
 
 [node name="opBox0" parent="Box/opBoxes" instance=ExtResource("4_veqcx")]
 position = Vector2(256, 320)
-operation = 3
-
-[node name="opBox1" parent="Box/opBoxes" instance=ExtResource("4_veqcx")]
-position = Vector2(192, 256)
-operation = 2
-
-[node name="opBox2" parent="Box/opBoxes" instance=ExtResource("4_veqcx")]
-position = Vector2(192, 128)
-
-[node name="opBox3" parent="Box/opBoxes" instance=ExtResource("4_veqcx")]
-position = Vector2(256, 192)
-operation = 1
 
 [node name="Player" parent="." instance=ExtResource("4_4sop5")]
 position = Vector2(512, 256)

@@ -1,12 +1,13 @@
 @tool
 extends Node2D
 
-@onready var valueDisplay: Label = $valueDisplay
+@onready var labelDisplay: Label = $valueDisplay
+var displayValue : String
 
 # Update the displayed value of the box
-func UpdateLabel(valueToDisplay) -> void:
-	if valueDisplay:
-		valueDisplay.text = str(valueToDisplay)
+func UpdateLabel() -> void:
+	if labelDisplay:
+		labelDisplay.text = displayValue
 
 func move(direction, length):
 	## Public function allowing the player script to move a box
