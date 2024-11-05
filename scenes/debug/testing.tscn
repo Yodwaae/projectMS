@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb7u72yjtjhqq"]
+[gd_scene load_steps=6 format=3 uid="uid://bb7u72yjtjhqq"]
 
 [ext_resource type="PackedScene" uid="uid://ba72wvvl311m0" path="res://scenes/debug/debugGrid.tscn" id="2_hmida"]
 [ext_resource type="PackedScene" uid="uid://bqau6osaho2pp" path="res://scenes/obstacle.tscn" id="3_gqudu"]
 [ext_resource type="PackedScene" uid="uid://7q7q5rmogpyh" path="res://scenes/boxes/numberBox.tscn" id="3_iw5sc"]
 [ext_resource type="PackedScene" uid="uid://dbo1t2mb27qn2" path="res://scenes/player.tscn" id="4_4sop5"]
+[ext_resource type="PackedScene" uid="uid://cxm1eatsoxwy6" path="res://scenes/boxes/operatorBox.tscn" id="4_veqcx"]
 
 [node name="testScene" type="Node2D"]
 
@@ -39,25 +40,44 @@ position = Vector2(384, 192)
 
 [node name="Box" type="Node2D" parent="."]
 
-[node name="numberBox0" parent="Box" instance=ExtResource("3_iw5sc")]
+[node name="nbBoxes" type="Node2D" parent="Box"]
+
+[node name="nbBox0" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(512, 448)
-value = 52
-
-[node name="numberBox1" parent="Box" instance=ExtResource("3_iw5sc")]
-position = Vector2(640, 384)
-value = 47
-
-[node name="numberBox2" parent="Box" instance=ExtResource("3_iw5sc")]
-position = Vector2(768, 320)
 value = 28
 
-[node name="numberBox3" parent="Box" instance=ExtResource("3_iw5sc")]
+[node name="nbBox1" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(256, 448)
-value = 92
+value = 57
 
-[node name="numberBox4" parent="Box" instance=ExtResource("3_iw5sc")]
-position = Vector2(192, 448)
-value = 88
+[node name="nbBox2" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
+position = Vector2(320, 448)
+value = 72
+
+[node name="nbBox3" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
+position = Vector2(768, 320)
+value = 99
+
+[node name="nbBox4" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
+position = Vector2(640, 384)
+value = 1
+
+[node name="opBoxes" type="Node2D" parent="Box"]
+
+[node name="opBox0" parent="Box/opBoxes" instance=ExtResource("4_veqcx")]
+position = Vector2(256, 320)
+operation = 3
+
+[node name="opBox1" parent="Box/opBoxes" instance=ExtResource("4_veqcx")]
+position = Vector2(192, 256)
+operation = 2
+
+[node name="opBox2" parent="Box/opBoxes" instance=ExtResource("4_veqcx")]
+position = Vector2(192, 128)
+
+[node name="opBox3" parent="Box/opBoxes" instance=ExtResource("4_veqcx")]
+position = Vector2(256, 192)
+operation = 1
 
 [node name="Player" parent="." instance=ExtResource("4_4sop5")]
 position = Vector2(512, 256)

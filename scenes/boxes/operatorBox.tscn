@@ -1,5 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxm1eatsoxwy6"]
+[gd_scene load_steps=3 format=3 uid="uid://cxm1eatsoxwy6"]
 
 [ext_resource type="PackedScene" uid="uid://cj8btawv0hqqo" path="res://scenes/boxes/box.tscn" id="1_djg71"]
+[ext_resource type="Script" path="res://Scripts/operatorBox.gd" id="2_sc21p"]
 
 [node name="Box" instance=ExtResource("1_djg71")]
+script = ExtResource("2_sc21p")
+operation = 0
+
+[node name="valueDisplay" parent="." index="3"]
+text = "0"
