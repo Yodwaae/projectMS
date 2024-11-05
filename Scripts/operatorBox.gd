@@ -2,13 +2,14 @@
 extends "res://scripts/box.gd"
 
 enum operationType { MULTIPLICATION, DIVISION, ADDITION, SUBSTRACTION }
-var operationDisplayArray = ["X", "/", "+", "−"]
+var operationDisplayArray = ["X", "/", "+", "―"]
 
 @export var operation : operationType :
 	set(newValue):
 		if operationDisplayArray:
 			operation = newValue
-			UpdateLabel(operationDisplayArray[newValue])
+			displayValue = operationDisplayArray[operation]
+			UpdateLabel()
 
 func _ready() -> void:
-	UpdateLabel(operationDisplayArray[operation])
+	UpdateLabel()

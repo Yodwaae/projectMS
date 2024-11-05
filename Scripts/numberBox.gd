@@ -5,7 +5,8 @@ extends "res://scripts/box.gd"
 	# Allow for the "hot reload" of the box, to display the correct number when changed in the editor
 	set(newValue):
 		value = newValue
-		UpdateLabel(value)
+		displayValue = str(value)
+		UpdateLabel()
 
 func _ready() -> void:
-	UpdateLabel(value)
+	UpdateLabel()
