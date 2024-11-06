@@ -9,6 +9,18 @@ signal moved(direction : Vector2)
 var displayValue : String
 #endregion
 
+#region === RAYCASTS ===
+@onready var leftNbBoxRaycast: ShapeCast2D = %leftNbBoxRaycast
+@onready var rightNbBoxRaycast: ShapeCast2D = %rightNbBoxRaycast
+@onready var upNbBoxRaycast: ShapeCast2D = %upNbBoxRaycast
+@onready var downNbBoxRaycast: ShapeCast2D = %downNbBoxRaycast
+
+# Order is important, fror operation like (left - right), (up / down)
+@onready var verticalRaycasts : Array[ShapeCast2D] = [upNbBoxRaycast, downNbBoxRaycast]
+@onready var horizontalRaycasts : Array[ShapeCast2D] = [leftNbBoxRaycast, rightNbBoxRaycast]
+
+var checkDirection : Array[ShapeCast2D]
+#endregion
 #endregion
 
 #region FUNCTIONS

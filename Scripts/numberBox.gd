@@ -14,4 +14,4 @@ func _ready() -> void:
 	UpdateLabel()
 
 func _on_moved(direction : Vector2):
-	print(direction)
+	pass

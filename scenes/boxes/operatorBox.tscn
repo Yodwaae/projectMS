@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxm1eatsoxwy6"]
+[gd_scene load_steps=3 format=3 uid="uid://cxm1eatsoxwy6"]
 
 [ext_resource type="PackedScene" uid="uid://cj8btawv0hqqo" path="res://scenes/boxes/box.tscn" id="1_djg71"]
 [ext_resource type="Script" path="res://scripts/operatorBox.gd" id="2_sc21p"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyk7b"]
 
 [node name="Box" instance=ExtResource("1_djg71")]
 script = ExtResource("2_sc21p")
@@ -15,48 +13,14 @@ collision_layer = 10
 [node name="valueDisplay" parent="." index="3"]
 text = "X"
 
-[node name="Raycasts" type="Node2D" parent="." index="4"]
-
-[node name="Vertical Raycasts" type="Node2D" parent="Raycasts" index="0"]
-
-[node name="leftNbBoxRaycast" type="ShapeCast2D" parent="Raycasts/Vertical Raycasts" index="0"]
-unique_name_in_owner = true
-position = Vector2(-32, 32)
-enabled = false
-shape = SubResource("RectangleShape2D_oyk7b")
-target_position = Vector2(0, 0)
+[node name="leftNbBoxRaycast" parent="Raycasts/Vertical Raycasts" index="0"]
 collision_mask = 4
-collide_with_areas = true
-collide_with_bodies = false
 
-[node name="rightNbBoxRaycast" type="ShapeCast2D" parent="Raycasts/Vertical Raycasts" index="1"]
-unique_name_in_owner = true
-position = Vector2(96, 32)
-enabled = false
-shape = SubResource("RectangleShape2D_oyk7b")
-target_position = Vector2(0, 0)
+[node name="rightNbBoxRaycast" parent="Raycasts/Vertical Raycasts" index="1"]
 collision_mask = 4
-collide_with_areas = true
-collide_with_bodies = false
 
-[node name="Horizontal Raycasts" type="Node2D" parent="Raycasts" index="1"]
-
-[node name="upNbBoxRaycast" type="ShapeCast2D" parent="Raycasts/Horizontal Raycasts" index="0"]
-unique_name_in_owner = true
-position = Vector2(32, -32)
-enabled = false
-shape = SubResource("RectangleShape2D_oyk7b")
-target_position = Vector2(0, 0)
+[node name="upNbBoxRaycast" parent="Raycasts/Horizontal Raycasts" index="0"]
 collision_mask = 4
-collide_with_areas = true
-collide_with_bodies = false
 
-[node name="downNbBoxRaycast" type="ShapeCast2D" parent="Raycasts/Horizontal Raycasts" index="1"]
-unique_name_in_owner = true
-position = Vector2(32, 96)
-enabled = false
-shape = SubResource("RectangleShape2D_oyk7b")
-target_position = Vector2(0, 0)
+[node name="downNbBoxRaycast" parent="Raycasts/Horizontal Raycasts" index="1"]
 collision_mask = 4
-collide_with_areas = true
-collide_with_bodies = false
