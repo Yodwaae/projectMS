@@ -8,4 +8,4 @@ script = ExtResource("2_sc21p")
 operation = 0
 
 [node name="valueDisplay" parent="." index="3"]
-text = "0"
+text = "X"

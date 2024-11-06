@@ -36,6 +36,7 @@ texture = ExtResource("2_el6nl")
 [node name="obsRaycastDown" type="ShapeCast2D" parent="Raycasts/Obstacles Raycats"]
 unique_name_in_owner = true
 position = Vector2(32, 96)
+enabled = false
 shape = SubResource("RectangleShape2D_2ujuo")
 target_position = Vector2(0, 0)
 collide_with_areas = true
@@ -44,6 +45,7 @@ collide_with_bodies = false
 [node name="obsRaycastUp" type="ShapeCast2D" parent="Raycasts/Obstacles Raycats"]
 unique_name_in_owner = true
 position = Vector2(32, -32)
+enabled = false
 shape = SubResource("RectangleShape2D_2ujuo")
 target_position = Vector2(0, 0)
 collide_with_areas = true
@@ -52,6 +54,7 @@ collide_with_bodies = false
 [node name="obsRaycastRight" type="ShapeCast2D" parent="Raycasts/Obstacles Raycats"]
 unique_name_in_owner = true
 position = Vector2(96, 32)
+enabled = false
 shape = SubResource("RectangleShape2D_2ujuo")
 target_position = Vector2(0, 0)
 collide_with_areas = true
@@ -60,6 +63,7 @@ collide_with_bodies = false
 [node name="obsRaycastLeft" type="ShapeCast2D" parent="Raycasts/Obstacles Raycats"]
 unique_name_in_owner = true
 position = Vector2(-32, 32)
+enabled = false
 shape = SubResource("RectangleShape2D_2ujuo")
 target_position = Vector2(0, 0)
 collide_with_areas = true
@@ -70,6 +74,7 @@ collide_with_bodies = false
 [node name="boxRaycastDown" type="ShapeCast2D" parent="Raycasts/Boxes Raycats"]
 unique_name_in_owner = true
 position = Vector2(32, 96)
+enabled = false
 shape = SubResource("RectangleShape2D_2lwpp")
 target_position = Vector2(0, 0)
 collision_mask = 2
@@ -79,6 +84,7 @@ collide_with_bodies = false
 [node name="boxRaycastUp" type="ShapeCast2D" parent="Raycasts/Boxes Raycats"]
 unique_name_in_owner = true
 position = Vector2(32, -32)
+enabled = false
 shape = SubResource("RectangleShape2D_ygml3")
 target_position = Vector2(0, 0)
 collision_mask = 2
@@ -88,6 +94,7 @@ collide_with_bodies = false
 [node name="boxRaycastRight" type="ShapeCast2D" parent="Raycasts/Boxes Raycats"]
 unique_name_in_owner = true
 position = Vector2(96, 32)
+enabled = false
 shape = SubResource("RectangleShape2D_b47le")
 target_position = Vector2(0, 0)
 collision_mask = 2
@@ -97,6 +104,7 @@ collide_with_bodies = false
 [node name="boxRaycastLeft" type="ShapeCast2D" parent="Raycasts/Boxes Raycats"]
 unique_name_in_owner = true
 position = Vector2(-32, 32)
+enabled = false
 shape = SubResource("RectangleShape2D_2sypk")
 target_position = Vector2(0, 0)
 collision_mask = 2
@@ -108,6 +116,7 @@ collide_with_bodies = false
 [node name="afterBoxRaycastDown" type="ShapeCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
 unique_name_in_owner = true
 position = Vector2(32, 160)
+enabled = false
 shape = SubResource("RectangleShape2D_brpph")
 target_position = Vector2(0, 0)
 collision_mask = 3
@@ -117,6 +126,7 @@ collide_with_bodies = false
 [node name="afterBoxRaycastUp" type="ShapeCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
 unique_name_in_owner = true
 position = Vector2(32, -96)
+enabled = false
 shape = SubResource("RectangleShape2D_jdc4x")
 target_position = Vector2(0, 0)
 collision_mask = 3
@@ -126,6 +136,7 @@ collide_with_bodies = false
 [node name="afterBoxRaycastRight" type="ShapeCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
 unique_name_in_owner = true
 position = Vector2(160, 32)
+enabled = false
 shape = SubResource("RectangleShape2D_48h0v")
 target_position = Vector2(0, 0)
 collision_mask = 3
@@ -135,6 +146,7 @@ collide_with_bodies = false
 [node name="afterBoxRaycastLeft" type="ShapeCast2D" parent="Raycasts/Obstacles Raycast after Boxes"]
 unique_name_in_owner = true
 position = Vector2(-96, 32)
+enabled = false
 shape = SubResource("RectangleShape2D_evbfh")
 target_position = Vector2(0, 0)
 collision_mask = 3

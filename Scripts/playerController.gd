@@ -49,6 +49,9 @@ var checkDirection : Array[ShapeCast2D]
 
 func checkBoxesAndObstacles(raycasts : Array[ShapeCast2D]) -> bool:
 	
+	# Trigger the raycast of the wanted direction
+	activateRaycast(raycasts)
+	
 	# Check the raycast collisions
 	var isThereObstacle = raycasts[0].is_colliding()
 	var isThereBox = raycasts[1].is_colliding()
@@ -62,7 +65,7 @@ func checkBoxesAndObstacles(raycasts : Array[ShapeCast2D]) -> bool:
 	var canMove = not isThereObstacle and (not isThereBox or (isThereBox and not isThereSomethingAfterBox))
 	return canMove
 	
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	
 	# ===== MOVEMENTS ======
 	
@@ -95,4 +98,7 @@ func _physics_process(delta: float) -> void:
 		# Consume the direction input
 		direction = Vector2.ZERO
 		
+func activateRaycast(raycasts : Array[ShapeCast2D]) -> void :
+	for raycast in raycasts:
+		raycast.force_shapecast_update()
 #endregion
