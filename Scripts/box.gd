@@ -1,8 +1,17 @@
 @tool
 extends Node2D
 
+#region ===== VARAIBLES INITIALISATION ======
+signal moved(direction : Vector2)
+
+#region === DISPLAY ===
 @onready var labelDisplay: Label = $valueDisplay
 var displayValue : String
+#endregion
+
+#endregion
+
+#region FUNCTIONS
 
 # Update the displayed value of the box
 func UpdateLabel() -> void:
@@ -15,3 +24,7 @@ func move(direction, length):
 	## length : int, length of the move in pixel
 	
 	position += direction * length
+	
+	moved.emit(direction)
+	
+#endregion

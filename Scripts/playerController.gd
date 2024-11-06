@@ -2,7 +2,7 @@ extends Node2D
 
 #region ===== VARIABLES INITIALISATION =======
 
-#region === RAYCAST ===
+#region === RAYCASTS ===
 
 #region Obstacles Raycasts
 @onready var obsRaycastDown: ShapeCast2D = %obsRaycastDown

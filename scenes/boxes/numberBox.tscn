@@ -7,6 +7,9 @@
 script = ExtResource("2_6wlll")
 value = 0
 
+[node name="Area2D" parent="." index="2"]
+collision_layer = 6
+
 [node name="valueDisplay" parent="." index="3"]
 theme_override_font_sizes/font_size = 20
 text = "0"
