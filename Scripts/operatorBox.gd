@@ -1,6 +1,8 @@
 @tool
 extends "res://scripts/box.gd"
 
+#TODO Revoir la structure des régions du script, pas mal de clean/refacto à faire
+
 #region ===== VARIABLES INITIALISATION ======
 
 #region === OPERATOR ===
@@ -47,42 +49,65 @@ func calculationLogic(raycasts: Array[ShapeCast2D]) -> void :
 	# Activate the raycasts on the desired axis
 	activateRaycast(raycasts)
 	
-	# Check if there's a calculation to be done
-	if raycasts[0].is_colliding() and raycasts[1].is_colliding():
-		var valueLeft = raycasts[0].get_collider(0).get_parent().value
-		var valueRight = raycasts[1].get_collider(0).get_parent().value
-		print(valueLeft)
-		print(valueRight)
-		doCalculate(valueLeft, valueRight)
+	# If there's not 2 number box get out of the function
+	if not raycasts[0].is_colliding() and not raycasts[1].is_colliding():
+		return
 	
-func doCalculate(valueLeft : float, valueRight : float) -> void:
+	# Get references to the boxes
+	var boxLeft = raycasts[0].get_collider(0).get_parent()
+	var boxRight = raycasts[1].get_collider(0).get_parent()
+	
+	# Get the value of the boxes
+	var valueLeft = boxLeft.value
+	var valueRight = boxRight.value
+	
+	# Calculate the result of the operation
+	var res = doCalculate(valueLeft, valueRight)
+	
+	# Launch the boxes deletion and creation logic
+	createNewNumberBox(res, boxLeft, boxRight)
+	
+func doCalculate(valueLeft : float, valueRight : float) -> float:
 	# Not really pretty but seems to be the best solution to me (way more operator to come)
 	# TODO/DEBUG FOR NOW IT JUST PRINT THE RESULT, THE INSTANTIATION LOGIC WILL COME LATER
-	print(operation)
+	var res = 0
 	match operation:
 		
 		#MULTIPLICATION
 		0: 
-			var res = valueLeft * valueRight
-			print(res)
+			res = valueLeft * valueRight
 		
 		#DIVISION
 		1: 
 			if valueRight != 0:
-				var res = valueLeft / valueRight
-				print(res)
+				res = valueLeft / valueRight
 			else:
+				# TODO See what is the ouput in a case of a division by zero (not working or creating a 'corrupted' box)
 				print("Petit Malin va")
 		
 		#ADDITION
 		2: 
-			var res = valueLeft + valueRight
-			print(res)
+			res = valueLeft + valueRight
 			
 		#SUBSTRACTION
 		4: 
-			var res = valueLeft - valueRight
-			print(res)
+			res = valueLeft - valueRight
+			
+	return res
+
+# TODO Voir pour créer des classes explicitement, ça facilitera peut être le typage dans certains cas
+# + rename function with a name mentionning both the creation and the deletion
+func createNewNumberBox(value : float, boxLeft : Node2D, boxRight : Node2D) -> void:
+	
+	# Delete source number boxes
+	boxLeft.queue_free()
+	boxRight.queue_free()
+	
+	# Create the new number Box (only debug for the moment)
+	print(value)
+	
+	# Delete itself
+	self.queue_free()
 	
 #endregion
 

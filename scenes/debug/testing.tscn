@@ -44,23 +44,23 @@ position = Vector2(384, 192)
 
 [node name="nbBox0" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(512, 448)
-value = 150
+value = 150.0
 
 [node name="nbBox1" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(256, 448)
-value = 27
+value = 27.0
 
 [node name="nbBox2" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(320, 448)
-value = 5
+value = 15.0
 
 [node name="nbBox3" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(768, 320)
-value = 28
+value = 28.0
 
 [node name="nbBox4" parent="Box/nbBoxes" instance=ExtResource("3_iw5sc")]
 position = Vector2(640, 384)
-value = 99
+value = 99.0
 
 [node name="opBoxes" type="Node2D" parent="Box"]
 
