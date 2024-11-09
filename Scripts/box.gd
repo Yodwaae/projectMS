@@ -18,7 +18,7 @@ var displayValue : String
 @onready var upBoxRaycast: ShapeCast2D = %upBoxRaycast
 @onready var downBoxRaycast: ShapeCast2D = %downBoxRaycast
 
-# Order is important, fror operation like (left - right), (up / down)
+# Order is important, for operation like (left - right), (up / down) + some functions depends on it, so it must not be modified
 @onready var verticalRaycasts : Array[ShapeCast2D] = [upBoxRaycast, downBoxRaycast]
 @onready var horizontalRaycasts : Array[ShapeCast2D] = [leftBoxRaycast, rightBoxRaycast]
 @onready var allRaycasts : Array[ShapeCast2D] = [leftBoxRaycast, upBoxRaycast, rightBoxRaycast, downBoxRaycast]

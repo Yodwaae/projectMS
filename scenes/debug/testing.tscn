@@ -52,7 +52,6 @@ value = 17.0
 
 [node name="nbBox2" parent="Box/nbBoxes" instance=ExtResource("3_7vx7g")]
 position = Vector2(320, 448)
-value = 25.0
 
 [node name="nbBox3" parent="Box/nbBoxes" instance=ExtResource("3_7vx7g")]
 position = Vector2(768, 320)
@@ -66,6 +65,7 @@ value = 88.0
 
 [node name="opBox0" parent="Box/opBoxes" instance=ExtResource("4_acne2")]
 position = Vector2(256, 320)
+operation = 1
 
 [node name="Player" parent="." instance=ExtResource("4_4sop5")]
 position = Vector2(512, 256)

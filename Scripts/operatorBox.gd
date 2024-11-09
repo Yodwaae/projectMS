@@ -24,9 +24,10 @@ var operationDisplayArray = ["X", "/", "+", "―"]
 
 #region ===== FUNCTIONS =====
 
+func _ready() -> void:
+	UpdateLabel()
+
 func _on_moved(direction : Vector2):
-	
-	print("onMoved")
 	
 	# Depending on the move direction, select the axis to do the check on
 	if direction in [Vector2.UP, Vector2.DOWN]:
@@ -59,7 +60,7 @@ func calculationLogic(raycasts: Array[ShapeCast2D]) -> void :
 	var res = doCalculate(valueLeft, valueRight)
 	
 	# Launch the boxes deletion and creation logic
-	createNewNumberBox(res, boxLeft, boxRight)
+	cleanAndCreateNewBox(res, boxLeft, boxRight)
 	
 func doCalculate(valueLeft : float, valueRight : float) -> float:
 	# Not really pretty but seems to be the best solution to me (way more operator to come)
@@ -77,6 +78,7 @@ func doCalculate(valueLeft : float, valueRight : float) -> float:
 				res = valueLeft / valueRight
 			else:
 				# TODO See what is the ouput in a case of a division by zero (not working or creating a 'corrupted' box)
+				# NOTE Funny thing is in godot dividing by zero gives 'inf' not an error
 				print("Petit Malin va")
 		
 		#ADDITION
@@ -89,9 +91,12 @@ func doCalculate(valueLeft : float, valueRight : float) -> float:
 			
 	return res
 
+#endregion
+
+#region === BOX DELETION AND CREATION ===
+
 # TODO Voir pour créer des classes explicitement, ça facilitera peut être le typage dans certains cas
-# + rename function with a name mentionning both the creation and the deletion
-func createNewNumberBox(value : float, boxLeft : Node2D, boxRight : Node2D) -> void:
+func cleanAndCreateNewBox(value : float, boxLeft : Node2D, boxRight : Node2D) -> void:
 	
 	# Delete source number boxes
 	boxLeft.queue_free()
