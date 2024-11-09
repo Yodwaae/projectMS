@@ -42,29 +42,7 @@ vertical_alignment = 1
 
 [node name="Vertical Raycasts" type="Node2D" parent="Raycasts"]
 
-[node name="leftNbBoxRaycast" type="ShapeCast2D" parent="Raycasts/Vertical Raycasts"]
-unique_name_in_owner = true
-position = Vector2(-32, 32)
-enabled = false
-shape = SubResource("RectangleShape2D_qxirq")
-target_position = Vector2(0, 0)
-collision_mask = 0
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="rightNbBoxRaycast" type="ShapeCast2D" parent="Raycasts/Vertical Raycasts"]
-unique_name_in_owner = true
-position = Vector2(96, 32)
-enabled = false
-shape = SubResource("RectangleShape2D_qxirq")
-target_position = Vector2(0, 0)
-collision_mask = 0
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="Horizontal Raycasts" type="Node2D" parent="Raycasts"]
-
-[node name="upNbBoxRaycast" type="ShapeCast2D" parent="Raycasts/Horizontal Raycasts"]
+[node name="upBoxRaycast" type="ShapeCast2D" parent="Raycasts/Vertical Raycasts"]
 unique_name_in_owner = true
 position = Vector2(32, -32)
 enabled = false
@@ -74,9 +52,31 @@ collision_mask = 0
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="downNbBoxRaycast" type="ShapeCast2D" parent="Raycasts/Horizontal Raycasts"]
+[node name="downBoxRaycast" type="ShapeCast2D" parent="Raycasts/Vertical Raycasts"]
 unique_name_in_owner = true
 position = Vector2(32, 96)
+enabled = false
+shape = SubResource("RectangleShape2D_qxirq")
+target_position = Vector2(0, 0)
+collision_mask = 0
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Horizontal Raycasts" type="Node2D" parent="Raycasts"]
+
+[node name="leftBoxRaycast" type="ShapeCast2D" parent="Raycasts/Horizontal Raycasts"]
+unique_name_in_owner = true
+position = Vector2(-32, 32)
+enabled = false
+shape = SubResource("RectangleShape2D_qxirq")
+target_position = Vector2(0, 0)
+collision_mask = 0
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="rightBoxRaycast" type="ShapeCast2D" parent="Raycasts/Horizontal Raycasts"]
+unique_name_in_owner = true
+position = Vector2(96, 32)
 enabled = false
 shape = SubResource("RectangleShape2D_qxirq")
 target_position = Vector2(0, 0)
