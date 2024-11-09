@@ -38,19 +38,13 @@ func _on_moved(direction : Vector2):
 	calculationLogic(checkDirection)
 	
 #region === CALCULATION ===
-
-#TODO Duplicated with player, maybe a better way without doing another script
-# Also all this raycast logic might need to be put in the box script directly
-func activateRaycast(raycasts : Array[ShapeCast2D]) -> void :
-	for raycast in raycasts:
-		raycast.force_shapecast_update()
 	
 func calculationLogic(raycasts: Array[ShapeCast2D]) -> void :
 	# Activate the raycasts on the desired axis
 	activateRaycast(raycasts)
 	
 	# If there's not 2 number box get out of the function
-	if not raycasts[0].is_colliding() and not raycasts[1].is_colliding():
+	if not raycasts[0].is_colliding() or not raycasts[1].is_colliding():
 		return
 	
 	# Get references to the boxes
@@ -104,6 +98,8 @@ func createNewNumberBox(value : float, boxLeft : Node2D, boxRight : Node2D) -> v
 	boxRight.queue_free()
 	
 	# Create the new number Box (only debug for the moment)
+	# TODO Enfait faudrait peut être une fonction publique du 'gameManager' pour la création de la box ? Et on lui file les valeurs nécessaires
+	# Faut aussi un constructeur en fait, pour filer la valeur et les positions
 	print(value)
 	
 	# Delete itself
