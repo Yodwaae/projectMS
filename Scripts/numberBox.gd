@@ -1,5 +1,6 @@
 @tool
-extends "res://scripts/box.gd"
+extends Box
+class_name NumberBox
 
 #region ===== VARAIBLES INITIALISATION ======
 

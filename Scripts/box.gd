@@ -1,5 +1,6 @@
 @tool
 extends Node2D
+class_name Box
 
 #region ===== VARIABLES INITIALISATION ======
 

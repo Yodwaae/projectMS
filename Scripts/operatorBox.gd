@@ -1,5 +1,6 @@
 @tool
-extends "res://scripts/box.gd"
+extends Box
+class_name OperatorBox
 
 #TODO Revoir la structure des régions du script, pas mal de clean/refacto à faire
 
