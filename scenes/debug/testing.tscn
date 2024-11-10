@@ -43,29 +43,29 @@ position = Vector2(384, 192)
 [node name="nbBoxes" type="Node2D" parent="Box"]
 
 [node name="nbBox0" parent="Box/nbBoxes" instance=ExtResource("3_7vx7g")]
-position = Vector2(511, 448)
-value = 5.0
+position = Vector2(320, 448)
+value = 17.0
 
 [node name="nbBox1" parent="Box/nbBoxes" instance=ExtResource("3_7vx7g")]
 position = Vector2(256, 448)
-value = 17.0
+value = 25.0
 
 [node name="nbBox2" parent="Box/nbBoxes" instance=ExtResource("3_7vx7g")]
-position = Vector2(320, 448)
+position = Vector2(512, 448)
+value = 80.0
 
 [node name="nbBox3" parent="Box/nbBoxes" instance=ExtResource("3_7vx7g")]
-position = Vector2(768, 320)
-value = 122.0
+position = Vector2(768, 321)
+value = 128.0
 
 [node name="nbBox4" parent="Box/nbBoxes" instance=ExtResource("3_7vx7g")]
 position = Vector2(640, 384)
-value = 88.0
+value = 60.0
 
 [node name="opBoxes" type="Node2D" parent="Box"]
 
 [node name="opBox0" parent="Box/opBoxes" instance=ExtResource("4_acne2")]
 position = Vector2(256, 320)
-operation = 1
 
 [node name="Player" parent="." instance=ExtResource("4_4sop5")]
 position = Vector2(512, 256)

@@ -17,6 +17,11 @@ class_name NumberBox
 func _ready() -> void:
 	UpdateLabel()
 
+func myInitialisation(position : Vector2, value : float):
+	self.position = position
+	self.value = value
+	print("Oui j'ai été instantié mek")
+
 func triggerOperationBoxCalculation(sourceDirectionIndex : int):
 	#Initialise a local var to store direction to check for the opBox
 	var direction : Array[ShapeCast2D]

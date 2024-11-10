@@ -2,9 +2,10 @@
 extends Box
 class_name OperatorBox
 
-#TODO Revoir la structure des régions du script, pas mal de clean/refacto à faire
-
 #region ===== VARIABLES INITIALISATION ======
+
+#DEBUG
+var numberBoxScene = load("res://scenes/boxes/numberBox.tscn")
 
 #region === OPERATOR ===
 
@@ -107,7 +108,11 @@ func cleanAndCreateNewBox(value : float, boxLeft : Node2D, boxRight : Node2D) ->
 	# TODO Enfait faudrait peut être une fonction publique du 'gameManager' pour la création de la box ? Et on lui file les valeurs nécessaires
 	# Faut aussi un constructeur en fait, pour filer la valeur et les positions
 	print(value)
-	
+	# TODO C'est vraiment a clean et refacto + foutre au bon endroit mais ça marche
+	var newBox = numberBoxScene.instantiate()
+	newBox.myInitialisation(position, value)
+	var scene = get_tree().current_scene
+	scene.add_child(newBox)
 	# Delete itself
 	self.queue_free()
 	
