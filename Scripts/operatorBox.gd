@@ -6,11 +6,12 @@ class_name OperatorBox
 
 #DEBUG
 var numberBoxScene = load("res://scenes/boxes/numberBox.tscn")
+@onready var levelManager = get_tree().current_scene
 
 #region === OPERATOR ===
 
 enum operationType { MULTIPLICATION, DIVISION, ADDITION, SUBSTRACTION }
-var operationDisplayArray = ["X", "/", "+", "―"]
+var operationDisplayArray = ["x", "/", "+", "―"]
 
 # DEBUG The set logic is only needed so that the modification in operator type appear immediatelly in editor
 @export var operation : operationType :
@@ -104,15 +105,9 @@ func cleanAndCreateNewBox(value : float, boxLeft : Node2D, boxRight : Node2D) ->
 	boxLeft.queue_free()
 	boxRight.queue_free()
 	
-	# Create the new number Box (only debug for the moment)
-	# TODO Enfait faudrait peut être une fonction publique du 'gameManager' pour la création de la box ? Et on lui file les valeurs nécessaires
-	# Faut aussi un constructeur en fait, pour filer la valeur et les positions
-	print(value)
-	# TODO C'est vraiment a clean et refacto + foutre au bon endroit mais ça marche
-	var newBox = numberBoxScene.instantiate()
-	newBox.myInitialisation(position, value)
-	var scene = get_tree().current_scene
-	scene.add_child(newBox)
+	# Create the new number Box
+	levelManager.instantiateNumberBox(self.position, value)
+	
 	# Delete itself
 	self.queue_free()
 	

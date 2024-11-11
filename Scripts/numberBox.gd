@@ -17,10 +17,17 @@ class_name NumberBox
 func _ready() -> void:
 	UpdateLabel()
 
-func myInitialisation(position : Vector2, value : float):
+func initialize(position : Vector2, value : float):
+	
+	# Set position and value
 	self.position = position
 	self.value = value
-	print("Oui j'ai été instantié mek")
+	
+	# Wait 175 ms to be sure the newly created box wont be missed by a raycast and so if multiples calculations are chained they are not instantaneous
+	await get_tree().create_timer(.175).timeout 
+	
+	# Launch box detection
+	raycastsCheck()
 
 func triggerOperationBoxCalculation(sourceDirectionIndex : int):
 	#Initialise a local var to store direction to check for the opBox
@@ -38,7 +45,7 @@ func triggerOperationBoxCalculation(sourceDirectionIndex : int):
 	# Launch the calculation logic on the target opBox
 	opBox.calculationLogic(direction)
 
-func _on_moved(direction : Vector2):
+func raycastsCheck():
 	
 	# Activate the raycasts in all directions
 	activateRaycast(allRaycasts)
@@ -52,5 +59,8 @@ func _on_moved(direction : Vector2):
 		triggerOperationBoxCalculation(2)
 	elif downBoxRaycast.is_colliding():
 		triggerOperationBoxCalculation(3)
-		
+
+func _on_moved(direction : Vector2):
+	raycastsCheck()
+	
 #endregion
