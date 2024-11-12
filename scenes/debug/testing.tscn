@@ -9,7 +9,6 @@
 
 [node name="testScene" type="Node2D"]
 script = ExtResource("1_ov3re")
-levelGoals = Array[float]([1.0, 425.0])
 
 [node name="Debug" type="Node2D" parent="."]
 
