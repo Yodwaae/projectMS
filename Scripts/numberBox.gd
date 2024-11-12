@@ -4,6 +4,7 @@ class_name NumberBox
 
 #region ===== VARAIBLES INITIALISATION ======
 
+
 @export var value : float = 0 :
 	# Allow for the "hot reload" of the box, to display the correct number when changed in the editor
 	set(newValue):
@@ -18,6 +19,9 @@ func _ready() -> void:
 	UpdateLabel()
 
 func initialize(position : Vector2, value : float):
+	
+	# Send signal to levelManager
+	Signals.emit_signal("newBoxCreated", value)
 	
 	# Set position and value
 	self.position = position
