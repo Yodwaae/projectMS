@@ -4,7 +4,6 @@ class_name NumberBox
 
 #region ===== VARAIBLES INITIALISATION ======
 
-
 @export var value : float = 0 :
 	# Allow for the "hot reload" of the box, to display the correct number when changed in the editor
 	set(newValue):
@@ -14,9 +13,6 @@ class_name NumberBox
 #endregion
 
 #region ===== FUNCTIONS =====
-
-func _ready() -> void:
-	UpdateLabel()
 
 func initialize(position : Vector2, value : float):
 	

@@ -4,8 +4,6 @@ class_name OperatorBox
 
 #region ===== VARIABLES INITIALISATION ======
 
-#DEBUG
-var numberBoxScene = load("res://scenes/boxes/numberBox.tscn")
 @onready var levelManager = get_tree().current_scene
 
 #region === OPERATOR ===
@@ -26,9 +24,6 @@ var operationDisplayArray = ["x", "/", "+", "―"]
 #endregion
 
 #region ===== FUNCTIONS =====
-
-func _ready() -> void:
-	UpdateLabel()
 
 func _on_moved(direction : Vector2):
 	
@@ -66,8 +61,8 @@ func calculationLogic(raycasts: Array[ShapeCast2D]) -> void :
 	cleanAndCreateNewBox(res, boxLeft, boxRight)
 	
 func doCalculate(valueLeft : float, valueRight : float) -> float:
-	# Not really pretty but seems to be the best solution to me (way more operator to come)
-	# TODO/DEBUG FOR NOW IT JUST PRINT THE RESULT, THE INSTANTIATION LOGIC WILL COME LATER
+	
+	# Not really pretty but seems to be the best solution (way more operator to come)
 	var res = 0
 	match operation:
 		
@@ -98,7 +93,6 @@ func doCalculate(valueLeft : float, valueRight : float) -> float:
 
 #region === BOX DELETION AND CREATION ===
 
-# TODO Voir pour créer des classes explicitement, ça facilitera peut être le typage dans certains cas
 func cleanAndCreateNewBox(value : float, boxLeft : Node2D, boxRight : Node2D) -> void:
 	
 	# Delete source number boxes

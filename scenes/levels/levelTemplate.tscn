@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dosfkx4gat5di"]
+
+[ext_resource type="Script" path="res://scripts/levelManager.gd" id="1_ye2b8"]
+[ext_resource type="PackedScene" uid="uid://7q7q5rmogpyh" path="res://scenes/boxes/numberBox.tscn" id="2_cnare"]
+[ext_resource type="PackedScene" uid="uid://cxm1eatsoxwy6" path="res://scenes/boxes/operatorBox.tscn" id="3_aaruq"]
+[ext_resource type="PackedScene" uid="uid://bqau6osaho2pp" path="res://scenes/obstacle.tscn" id="4_e0pbo"]
+[ext_resource type="PackedScene" uid="uid://dbo1t2mb27qn2" path="res://scenes/player.tscn" id="5_pj3cs"]
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_ye2b8")
+
+[node name="Boxes" type="Node2D" parent="."]
+
+[node name="Number Boxes" type="Node2D" parent="Boxes"]
+
+[node name="nbBox0" parent="Boxes/Number Boxes" instance=ExtResource("2_cnare")]
+position = Vector2(64, 128)
+
+[node name="Operator Boxes" type="Node2D" parent="Boxes"]
+
+[node name="opBox0" parent="Boxes/Operator Boxes" instance=ExtResource("3_aaruq")]
+position = Vector2(320, 128)
+
+[node name="Walls" type="Node2D" parent="."]
+position = Vector2(512, 128)
+
+[node name="wall0" parent="Walls" instance=ExtResource("4_e0pbo")]
+
+[node name="Player" parent="." instance=ExtResource("5_pj3cs")]
+position = Vector2(768, 128)

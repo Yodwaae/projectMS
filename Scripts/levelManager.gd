@@ -3,6 +3,7 @@ extends Node
 #region ===== VARIABLES INITIALISATION ======
 
 var numberBoxScene = load("res://scenes/boxes/numberBox.tscn")
+
 @export var goals : Array[float]
 var goalsReached : Array[float]
 
@@ -27,8 +28,6 @@ func instantiateNumberBox(position : Vector2, value : float):
 	add_child(newBox)
 	
 func _on_new_box_created(value: float) -> void:
-	# DEBUG Print for now
-	print("You created the box : " + str(value))
 	
 	if value in goals:
 		goalsReached.append(value)

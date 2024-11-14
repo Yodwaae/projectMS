@@ -31,6 +31,9 @@ var checkDirection : Array[ShapeCast2D]
 
 #region FUNCTIONS
 
+func _ready() -> void:
+	UpdateLabel()
+
 # Force the update of all the raycast in the array passed as arg
 func activateRaycast(raycasts : Array[ShapeCast2D]) -> void :
 	for raycast in raycasts:
