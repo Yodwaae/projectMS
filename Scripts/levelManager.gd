@@ -4,8 +4,9 @@ extends Node
 
 var numberBoxScene = load("res://scenes/boxes/numberBox.tscn")
 
-@export var goals : Array[float]
-var goalsReached : Array[float]
+@onready var goalsDisplay: Label = %GoalsDisplay
+@export var goals : Array[int]
+var goalsReached : Array[int]
 
 #endregion
 
@@ -18,9 +19,12 @@ func _ready() -> void:
 	
 	# Initializing
 	goalsReached = []
+	
+	var goalsString = " - ".join(goals)
+	goalsDisplay.text = goalsString
 
 # TODO Faut vraiment que je trouve un fix pour tous les timeout + call deferred
-func instantiateNumberBox(position : Vector2, value : float):
+func instantiateNumberBox(position : Vector2, value : int):
 	
 	# Create new box, initialize it and add it to  the scene
 	var newBox = numberBoxScene.instantiate()
@@ -35,4 +39,5 @@ func _on_new_box_created(value: float) -> void:
 	
 	if goals.is_empty():
 		print("Level Finished")
+		
 #endregion

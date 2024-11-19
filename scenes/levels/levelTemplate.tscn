@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dosfkx4gat5di"]
+[gd_scene load_steps=7 format=3 uid="uid://dosfkx4gat5di"]
 
 [ext_resource type="Script" path="res://scripts/levelManager.gd" id="1_ye2b8"]
 [ext_resource type="PackedScene" uid="uid://7q7q5rmogpyh" path="res://scenes/boxes/numberBox.tscn" id="2_cnare"]
+[ext_resource type="FontFile" uid="uid://c5hngck2kyaya" path="res://Assets/font/Roboto/Roboto-Black.ttf" id="2_w8nqb"]
 [ext_resource type="PackedScene" uid="uid://cxm1eatsoxwy6" path="res://scenes/boxes/operatorBox.tscn" id="3_aaruq"]
 [ext_resource type="PackedScene" uid="uid://bqau6osaho2pp" path="res://scenes/obstacle.tscn" id="4_e0pbo"]
 [ext_resource type="PackedScene" uid="uid://dbo1t2mb27qn2" path="res://scenes/player.tscn" id="5_pj3cs"]
@@ -15,6 +16,7 @@ script = ExtResource("1_ye2b8")
 
 [node name="nbBox0" parent="Boxes/Number Boxes" instance=ExtResource("2_cnare")]
 position = Vector2(64, 128)
+value = 0
 
 [node name="Operator Boxes" type="Node2D" parent="Boxes"]
 
@@ -25,6 +27,17 @@ position = Vector2(320, 128)
 position = Vector2(512, 128)
 
 [node name="wall0" parent="Walls" instance=ExtResource("4_e0pbo")]
+
+[node name="GoalsDisplay" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 320.0
+offset_top = 32.0
+offset_right = 832.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_w8nqb")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("5_pj3cs")]
 position = Vector2(768, 128)

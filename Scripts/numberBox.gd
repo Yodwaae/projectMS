@@ -4,7 +4,7 @@ class_name NumberBox
 
 #region ===== VARAIBLES INITIALISATION ======
 
-@export var value : float = 0 :
+@export var value : int = 0 :
 	# Allow for the "hot reload" of the box, to display the correct number when changed in the editor
 	set(newValue):
 		value = newValue
@@ -14,7 +14,7 @@ class_name NumberBox
 
 #region ===== FUNCTIONS =====
 
-func initialize(position : Vector2, value : float):
+func initialize(position : Vector2, value : int):
 	
 	# Send signal to levelManager
 	Signals.emit_signal("newBoxCreated", value)

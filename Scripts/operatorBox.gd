@@ -8,8 +8,11 @@ class_name OperatorBox
 
 #region === OPERATOR ===
 
-enum operationType { MULTIPLICATION, DIVISION, ADDITION, SUBSTRACTION }
-var operationDisplayArray = ["x", "/", "+", "―"]
+enum operationType { MULTIPLICATION, DIVISION, ADDITION, SUBSTRACTION, MODULO}
+var operationDisplayArray = ["x", "/", "+", "―", "%"]
+
+enum specialOperationType {SQUARE, CUBE, SQRT, LOG2, LOG10}
+var specialOperationDisplayArray = ["^2", "^3", "√2", "Log2", "Log10"]
 
 # DEBUG The set logic is only needed so that the modification in operator type appear immediatelly in editor
 @export var operation : operationType :
@@ -60,7 +63,7 @@ func calculationLogic(raycasts: Array[ShapeCast2D]) -> void :
 	# Launch the boxes deletion and creation logic
 	cleanAndCreateNewBox(res, boxLeft, boxRight)
 	
-func doCalculate(valueLeft : float, valueRight : float) -> float:
+func doCalculate(valueLeft : int, valueRight : int) -> int:
 	
 	# Not really pretty but seems to be the best solution (way more operator to come)
 	var res = 0
@@ -86,14 +89,18 @@ func doCalculate(valueLeft : float, valueRight : float) -> float:
 		#SUBSTRACTION
 		4: 
 			res = valueLeft - valueRight
-			
+		
+		#MODULO	
+		5:
+			res = fmod(valueLeft, valueRight)
+
 	return res
 
 #endregion
 
 #region === BOX DELETION AND CREATION ===
 
-func cleanAndCreateNewBox(value : float, boxLeft : Node2D, boxRight : Node2D) -> void:
+func cleanAndCreateNewBox(value : int, boxLeft : Node2D, boxRight : Node2D) -> void:
 	
 	# Delete source number boxes
 	boxLeft.queue_free()
