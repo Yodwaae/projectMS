@@ -4,6 +4,8 @@ class_name NumberBox
 
 #region ===== VARAIBLES INITIALISATION ======
 
+@export var minValue : int = -9999
+@export var maxValue : int = 9999
 @export var value : int = 0 :
 	# Allow for the "hot reload" of the box, to display the correct number when changed in the editor
 	set(newValue):
@@ -15,6 +17,9 @@ class_name NumberBox
 #region ===== FUNCTIONS =====
 
 func initialize(position : Vector2, value : int):
+	
+	# Make sur the value stay between min and max
+	clamp(value, minValue, maxValue)
 	
 	# Send signal to levelManager
 	Signals.emit_signal("newBoxCreated", value)

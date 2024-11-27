@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb7u72yjtjhqq"]
+[gd_scene load_steps=11 format=4 uid="uid://bb7u72yjtjhqq"]
 
 [ext_resource type="Script" path="res://scripts/levelManager.gd" id="1_ov3re"]
 [ext_resource type="FontFile" uid="uid://c5hngck2kyaya" path="res://Assets/font/Roboto/Roboto-Black.ttf" id="2_2xio2"]
@@ -7,10 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://bqau6osaho2pp" path="res://scenes/obstacle.tscn" id="3_gqudu"]
 [ext_resource type="PackedScene" uid="uid://dbo1t2mb27qn2" path="res://scenes/player.tscn" id="4_4sop5"]
 [ext_resource type="PackedScene" uid="uid://cxm1eatsoxwy6" path="res://scenes/boxes/operatorBox.tscn" id="4_acne2"]
+[ext_resource type="Texture2D" uid="uid://dkpp5xmjxfn8g" path="res://Assets/assets custom/MStileset-Sheet.png" id="8_suesa"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkiik"]
+texture = ExtResource("8_suesa")
+texture_region_size = Vector2i(64, 64)
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qmfvr"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_xkiik")
 
 [node name="testScene" type="Node2D"]
 script = ExtResource("1_ov3re")
 goals = Array[int]([25, 40])
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAHAAIAAAABAAEAAAAIAAIAAAABAAEAAAAGAAIAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAAGAAUAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_qmfvr")
 
 [node name="Debug" type="Node2D" parent="."]
 
@@ -20,6 +38,9 @@ goals = Array[int]([25, 40])
 
 [node name="mur0" parent="Murs" instance=ExtResource("3_gqudu")]
 position = Vector2(384, 256)
+
+[node name="mur8" parent="Murs" instance=ExtResource("3_gqudu")]
+position = Vector2(384, 128)
 
 [node name="mur1" parent="Murs" instance=ExtResource("3_gqudu")]
 position = Vector2(640, 320)
@@ -48,7 +69,7 @@ position = Vector2(384, 192)
 
 [node name="nbBox0" parent="Box/nbBoxes" instance=ExtResource("3_7vx7g")]
 position = Vector2(320, 448)
-value = 3
+value = 9999
 
 [node name="nbBox1" parent="Box/nbBoxes" instance=ExtResource("3_7vx7g")]
 position = Vector2(128, 448)
